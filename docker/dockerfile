@@ -1,0 +1,8 @@
+FROM php:7.0-apache
+
+# ca-certificates is required to download from github
+RUN apt-get -yq update \
+    && apt-get install --assume-yes --no-install-recommends \
+        tar zip unzip vim ssh git rsync libssl-dev ftp wget
+
+RUN wget "http://www.saxonica.com/saxon-c/libsaxon-EEC-setup64-v1.0.2.zip" && unzip libsaxon-EEC-setup64-v1.0.2.zip
