@@ -14,10 +14,13 @@ jenkinsApiKey ?= unknownApiKey
 dockerImage ?= LATEST
 
 build:
-	docker build -t saxonica -f docker/dockerfile .
+	docker build -t saxonica -f docker/Dockerfile .
 
 start:
 	docker run --name saxonica -d saxonica
+
+stop:
+	@docker rm -vf saxonica
 
 exec:
 	docker exec -it saxonica bash
